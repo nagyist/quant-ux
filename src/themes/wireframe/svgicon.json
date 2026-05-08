@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SVGIcon",
+    "type": "SVGIcon",
+    "category": "Advanced",
+    "subcategory": "FormSpecialIcon",
+    "_type": "Widget",
+    "name": "SVG Icon",
+    "x": 0,
+    "y": 0,
+    "w": "@box-width-xs",
+    "h": "@box-height-xs",
+    "z": 0,
+    "props": {
+      "images": [],
+      "color": "@color-icon",
+      "svg": ""
+    },
+    "has": {
+      "onclick": true,
+      "data": true
+    },
+    "actions": {},
+    "style": {
+      "color": "@color-icon",
+      "strokeWidth": 1,
+      "backgroundImageRotation": 0
+    }
+  }
+]

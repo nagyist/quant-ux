@@ -66,7 +66,7 @@ export default {
 						'ProgressBar', 'ScreenSegment', 'CountingStepper', "Tree", "VerticalNavigation", 'IconButton', 'Timeline', 'VisualPicker', 
 						'Script', 'IconToggleButton', 'ProgessSegments', 'ImagePaging', 'LabeledCheckBox', 'LabeledRadioBox', 'LabeledTextBox', 'NavBar', 
 						'NavMenu', 'LabeledTextArea', 'SortableList', 'RadioTable', 'DragNDropTarget', 'GeoLocation', 'ImageGrid', 'AudioPlayer', 
-						'AudioLogic', 'GridContainer'],
+						'AudioLogic', 'GridContainer', 'SVGIcon'],
 						
 			hasActiveData: ["DateDropDown"],
 			// validation == databining

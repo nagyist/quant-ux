@@ -1235,11 +1235,11 @@ export default {
 
 		_showSVGIcon(model) {
 			this._setSectionLabel("Icon");
-			this._renderButton("Icon", "Settings", e => this._renderSVGIconDialog(e, model));
+			this._renderImagesDropDown(model, true);
+			this._renderColor('Stroke Color','<span class="Color"></span>', model.props.color || model.style.color, "color", "onSVGIconColorChanged", true);
+			//this._renderButton("Icon", "Settings", e => this._renderSVGIconDialog(e, model));
 
 			this._renderInputDropDown("Stroke Width", model, [0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 8], "strokeWidth", false);
-
-
 
 			const row = this.db.div("MatcToobarRow").build(this.cntr);
 			const rotate = this.$new(ImageRotate)
@@ -2471,7 +2471,7 @@ export default {
 
 		},
 
-		_renderImagesDropDown (widget){
+		_renderImagesDropDown (widget, isMultiSelect = true){
 
 			var row = this.db.div("MatcToobarRow").build(this.cntr);
 
@@ -2481,7 +2481,7 @@ export default {
 			imageDrpDwn.setModel(this.model);
 			imageDrpDwn.setCanvas(this.canvas);
 			imageDrpDwn.setSelection(widget.props.images);
-			imageDrpDwn.setMultiSelection(true);
+			imageDrpDwn.setMultiSelection(isMultiSelect);
 			//imageDrpDwn.setLabel('<span class="mdi mdi-image"></span> <span class="MatcToolbarItemLabel">Images</span>');
 			imageDrpDwn.placeAt(row);
 			this.tempOwn(on(imageDrpDwn, "change", lang.hitch(this, "onProperyChanged", "images")));
@@ -2652,6 +2652,11 @@ export default {
 		onStyleChanged (key, value){
 			this.logger.log(2, "onStyleChanged", "enter > "+ key + " > " + value);
 			this.emit("stypeChange", key, value);
+		},
+
+		onSVGIconColorChanged (key, value) {
+			this.onProperyChanged(key, value)
+			this.onStyleChanged(key, value)
 		},
 
 		onTempStyleChanged  (key, value){

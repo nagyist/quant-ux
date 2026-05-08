@@ -763,6 +763,8 @@ export default {
 				"h" : 40,
 				"z" : 0,
 				"props" : {
+					"images": [],
+					"color": "#333333",
 					"svg": this.svgIcons[icon] 
 				},
 				"has" : {
