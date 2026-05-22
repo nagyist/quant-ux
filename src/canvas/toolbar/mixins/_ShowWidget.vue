@@ -196,6 +196,8 @@ export default {
 				this.color.setModel(this.model)
 				this.color.setBox(model)
 				this.color.setWidgetViewMode(widgetViewMode)
+
+	
 			} else {
 				/**
 				 * Since 5.0.0 icons etc will have a color to use design tokens
@@ -209,7 +211,12 @@ export default {
 						this.color.setWidgetViewMode(widgetViewMode)
 					}
 				}
+			}
 
+			if (model.type === 'Label') {
+				this.color.setShowGradient(true)
+			} else {
+				this.color.setShowGradient(false)
 			}
 
 			if (this.hasPadding.indexOf(model.type) >=0) {

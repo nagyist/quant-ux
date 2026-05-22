@@ -230,6 +230,12 @@ export default {
       }
     },
 
+    _set_color (parent, style) {
+      if (style.color) {
+        this._set_gradient_color(parent, style)
+      }
+    },
+
     _set_fontSize (parent, style) {
       if (style.fontSize === "Auto" || this.style.fontSize === "a") {
         parent.style.fontSize = Math.round(this.model.h * 0.95) + "px";

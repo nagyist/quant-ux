@@ -1000,7 +1000,7 @@ export default {
 
 
 
-			this.color = this.$new(ToolbarColor, {hasPicker:true, chevron:false, hex:true});
+			this.color = this.$new(ToolbarColor, {hasPicker:true, chevron:false, hex:true, hasGradient:true, showGradient:false});
 			this.color.keepOpenOnTypeSelection = "widget";
 			this.color.reposition = true;
 			this.color.updateLabel = true;

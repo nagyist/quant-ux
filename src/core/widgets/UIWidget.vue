@@ -1141,16 +1141,7 @@ export default {
           const background = style.background;
           if (node) {
             if (background && background.colors) {
-              let value = "(" + background.direction + "deg";
-              const sortedColors = background.colors.slice()
-              sortedColors.sort((a, b) => {
-                return a.p - b.p
-              })
-              for (let i = 0; i < sortedColors.length; i++) {
-                const color = sortedColors[i];
-                value += "," + color.c + " " + color.p + "% ";
-              }
-              value + ");";
+              const value = this._get_gradient_css(background);
               node.style.background = "linear-gradient" + value;
               node.style.background = "-webkit-linear-gradient" + value;
             } else {
@@ -1161,6 +1152,34 @@ export default {
           }
         }
       }
+    },
+
+    _set_gradient_color(parent, style) {
+        const c = style.color 
+        if (c.gradient) {
+          const value = this._get_gradient_css(c);
+          parent.style.backgroundImage = "linear-gradient" + value;
+          parent.style.color = 'transparent';
+          parent.style.backgroundClip = 'text';
+        } else {
+          parent.style.backgroundImage = ''
+          parent.style.color = style.color;
+          parent.style.backgroundClip = '';
+        }
+    },
+
+    _get_gradient_css(background) {
+      let value = "(" + background.direction + "deg";
+      const sortedColors = background.colors.slice()
+      sortedColors.sort((a, b) => {
+        return a.p - b.p
+      })
+      for (let i = 0; i < sortedColors.length; i++) {
+        const color = sortedColors[i];
+        value += "," + color.c + " " + color.p + "% ";
+      }
+      value + ");";
+      return value;
     },
 
     _set_background_gradient(node, background) {
